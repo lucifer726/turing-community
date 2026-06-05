@@ -1,5 +1,7 @@
 # turing-community
 
+![图灵社区技能包宣传图](assets/turing-community-promo.png)
+
 一个 [Claude](https://claude.com/claude-code) **Skill**：把开发者的真实代码项目和图灵社区（[ituring.com.cn](https://www.ituring.com.cn/)）的公开知识资产连接起来——诊断项目、定位知识缺口、按理由推荐图灵图书/公开资源，并为图灵运营把项目场景转成读者内容。
 
 > 推荐基于公开书目信息与项目匹配度，不替代完整阅读；涉及购买、电子书、样章、勘误、课程报名以图灵社区官方页面为准。
