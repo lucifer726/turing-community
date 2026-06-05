@@ -57,6 +57,112 @@ git clone https://github.com/lucifer726/turing-community.git .claude/skills/turi
 
 ---
 
+## 功能演示
+
+下面脚本部分为**真实运行输出**（用一组测试项目作为输入）；行为部分是 skill 被调用时的产出形态，遵循 [`SKILL.md`](SKILL.md) 的输出规范。
+
+### 1. 项目诊断（只读）
+
+对 5 类不同项目扫描，推断技术栈/类型并检测"反模式缺口"：
+
+| 项目 | project_types | gap_signals |
+|------|--------------|-------------|
+| ai-rag（openai+langchain+chromadb） | `ai-app, rag` | `ai-without-evaluation`, `no-test-coverage` |
+| node-backend（express+pg+jwt） | `backend` | `auth-without-crypto-foundation`, `db-access-without-orm`, `no-test-coverage` |
+| tested-backend（fastapi+pytest） | `backend, has-tests` | （无缺口） |
+| frontend（react+vite） | `frontend-tool` | `no-test-coverage` |
+| algo（纯 Python） | `general-software` | `no-test-coverage` |
+
+缺口带可读证据，例如 ai-rag：
+
+```
+ai-without-evaluation
+  evidence: 检测到 LLM 依赖 ['openai', 'langchain']，但未发现 eval/评估脚本或相关测试。
+  focus   : ['评估闭环', 'AI 工程化', '输出可靠性']
+```
+
+### 2. 官网公开查询
+
+```text
+$ fetch_ituring_public.py --latest --limit 5
+[3616] 图解Skill：AI提效实战指南 | 宝玉 | ¥79.80 | 上市销售
+[3514] 豆包高效学习法… | ¥45.80
+[3464] 课本里不可不知的100个物理知识点（高中篇） | ¥69.80
+...
+
+$ fetch_ituring_public.py --book 3404
+title: AI工程：大模型应用开发实战   publish_date: 2026-02-02   press: 图灵教育
+price: 159.80   ebook_formats: [EPUB, MOBI, PDF]   tags: [大模型]
+availability: {paper: false, ebook: true, in_stock: true}
+popularity: {views: 9568, favorites: 116, comments: 30}
+official_url: https://www.ituring.com.cn/book/3404
+
+$ fetch_ituring_public.py --query "机器学习" --limit 3
+实战AI大模型：来自OpenAI的一线经验 | ¥119.80 | …/book/3459
+知识图谱：基础、技术与应用 | ¥149.80 | …/book/2940
+Python数据科学手册（第2版） | ¥139.80 | …/book/3029
+
+$ fetch_ituring_public.py --book 99999999   # 坏 id：优雅兜底，不崩溃
+status: unavailable | error: HTTP 404 | fallback_url: …/book/99999999
+```
+
+### 3. 学习计划产物化
+
+`inspect_project.py ai-rag | scaffold_learning_plan.py --weeks 4 --goal "把 RAG 客服 demo 做到可上线"`：
+
+| 周 | 主题 | Reading task |
+|----|------|--------------|
+| 1 | 建立 AI 评估闭环 | AI工程 |
+| 2 | 建立测试基线 | Hello 算法；算法（第4版） |
+| 3 | 深化 ai-app | 从零开始构建大模型；大模型实战 |
+| 4 | 深化 rag | 大模型实战 |
+
+（每周还含 Code task / Validation task 占位 + Checkpoints；可 `--out learning_plan.md` 落盘追踪。）
+
+### 4. 团队技能图谱
+
+跨多个仓库汇总，定位团队共性缺口：
+
+```
+team_gap_signals  : [['no-test-coverage', 3], ['ai-without-evaluation', 1], ['auth-without-crypto-foundation', 1], ['db-access-without-orm', 1]]
+team_project_types: [['backend', 2], ['ai-app', 1], ['rag', 1], ...]
+=> no-test-coverage 出现 3 次 → 共学营/书单的首选主题
+```
+
+### 5. 开发者找书推荐（行为层）
+
+> 用户："我在做一个 RAG 客服 demo，用 openai + chromadb，准备上线，怎么保证回答质量？"
+
+**Project Read**：Python + openai + chromadb；demo→上线；主缺口 `ai-without-evaluation`。
+**工程建议**：上线前先建评估集，用检索命中率 + 回答正确率卡质量，再谈自动化。
+**Turing Resources**：
+- 《AI工程》（¥159.80，[book/3404](https://www.ituring.com.cn/book/3404)）— 正好补"评估/可靠性"，含模型评估、RAG、推理优化；先读评估与 RAG 两章落到评估脚本。
+- 《生成式AI提示工程权威指南》— 提升提示与输出可靠性，直接作用于"回答质量"。
+
+*推荐依据来自内置资料包 + 官网公开页；价格/库存以官方页面为准。*
+
+### 6. 运营直播策划（行为层）
+
+> 运营："想给后端开发者做一场图灵直播。"
+
+- **Audience**：后端开发者，遇到性能瓶颈但缺系统排查方法。
+- **Content Angle**："一次服务端性能排查怎么做"。
+- **Activation**：图书 hook《图解性能优化》；直播选题=性能排查实战；社群话题"你最近一次性能问题卡在哪"；克制的官方书页/共学营 CTA。
+
+### 7. 双向桥接：书 → 项目（行为层）
+
+> 用户："我读到密码学里的'盐值'(salt)，我的登录功能怎么用上？"
+
+**工程建议**：存密码时为每个用户生成随机 salt，用 bcrypt/argon2 这类带 salt 的算法（而非裸 hash），登录时用存储的 salt 重算比对——正好对应该项目的 `auth-without-crypto-foundation` 缺口。深入看《图解密码技术》官方页。*（不复述书正文，只做概念→代码映射。）*
+
+### 8. 边界遵守（行为层）
+
+> 用户："帮我把《AI工程》的完整 PDF 下载下来。"
+
+**拒绝**：不帮下载/分发受版权保护的付费电子书，引导到官方书页购买；可列出该书**公开**配套资源名称并指向官方下载位置。同类拒绝：重建书正文、绕过登录拉订单。
+
+---
+
 ## 给 Agent（调用本 Skill 的助手）
 
 > 完整规则见 [`SKILL.md`](SKILL.md)；本节是面向调用方的速查。
