@@ -1,0 +1,8 @@
+interface:
+  display_name: "图灵社区项目助手"
+  short_description: "用图灵公开资源辅助 AI 编程项目和学习路径"
+  brand_color: "#1F6FEB"
+  default_prompt: "Use $turing-community to inspect my AI programming project, identify learning gaps, and recommend relevant Turing Community books or public resources."
+
+policy:
+  allow_implicit_invocation: true

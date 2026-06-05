@@ -1,0 +1,183 @@
+{
+  "source_note": "Seed catalog compiled from public Turing Community/booklet information. Use official pages for current availability, pricing, samples, resources, and errata.",
+  "official_site": "https://www.ituring.com.cn/",
+  "asset_type_note": "Each item has a `type`. The static seed holds books only. 视频课/共学营/图灵直播 are time-sensitive assets: fetch them live via scripts/fetch_ituring_public.py --book <id> (related_live_courses field) or the official site. Never present a hardcoded course/livestream as current — that is why none are baked into this seed.",
+  "items": [
+    {
+      "title": "Hello 算法",
+      "type": "book",
+      "authors": ["靳宇栋（@krahets）"],
+      "domain": "计算机",
+      "topics": ["算法", "数据结构", "可视化学习", "编程基础"],
+      "level": "入门到进阶",
+      "project_types": ["algorithm-learning", "interview-prep", "cs-foundation", "education-tool"],
+      "fit": "适合用动画和代码建立数据结构与算法直觉，适合算法学习项目或面试准备。",
+      "official_url": "https://www.ituring.com.cn/search?q=Hello%20%E7%AE%97%E6%B3%95"
+    },
+    {
+      "title": "算法（第4版）",
+      "type": "book",
+      "authors": ["Robert Sedgewick", "Kevin Wayne"],
+      "domain": "计算机",
+      "topics": ["算法", "数据结构", "Java", "图算法", "排序", "搜索"],
+      "level": "进阶",
+      "project_types": ["algorithm-learning", "backend", "performance", "interview-prep"],
+      "fit": "适合需要系统补齐经典算法与 Java 实现的开发者。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E7%AE%97%E6%B3%95%20%E7%AC%AC4%E7%89%88"
+    },
+    {
+      "title": "Python数据结构与算法分析（第3版）",
+      "type": "book",
+      "authors": ["Bradley N. Miller", "David L. Ranum", "Roman Yasinovskyy"],
+      "domain": "计算机",
+      "topics": ["Python", "数据结构", "算法", "计算机科学基础"],
+      "level": "入门到进阶",
+      "project_types": ["python", "algorithm-learning", "data-tool", "education-tool"],
+      "fit": "适合 Python 项目开发者补算法基础，并把概念落实到代码。",
+      "official_url": "https://www.ituring.com.cn/search?q=Python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"
+    },
+    {
+      "title": "从零开始构建大模型",
+      "type": "book",
+      "authors": ["Sebastian Raschka"],
+      "domain": "计算机",
+      "topics": ["人工智能", "大模型", "深度学习", "LLM"],
+      "level": "进阶",
+      "project_types": ["ai-app", "llm", "machine-learning", "research-prototype"],
+      "fit": "适合希望理解 LLM 底层训练、架构和实现路径的 AI 编程用户。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E5%A4%A7%E6%A8%A1%E5%9E%8B"
+    },
+    {
+      "title": "大模型实战",
+      "type": "book",
+      "authors": ["Jay Alammar", "Maarten Grootendorst"],
+      "domain": "计算机",
+      "topics": ["大模型", "Python", "语义搜索", "文本摘要", "生成式AI"],
+      "level": "入门到进阶",
+      "project_types": ["ai-app", "rag", "semantic-search", "content-tool"],
+      "fit": "适合把预训练语言模型用于真实应用，如语义搜索、摘要和内容生成。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E6%88%98"
+    },
+    {
+      "title": "大模型应用开发极简入门（第2版）",
+      "type": "book",
+      "authors": ["Olivier Caelen", "Marie-Alice Blete"],
+      "domain": "计算机",
+      "topics": ["大模型应用", "ChatGPT", "Python", "应用开发"],
+      "level": "入门",
+      "project_types": ["ai-app", "prototype", "python", "automation-tool"],
+      "fit": "适合初学者快速建立大模型应用开发的最小可用知识。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%9E%81%E7%AE%80%E5%85%A5%E9%97%A8"
+    },
+    {
+      "title": "生成式AI提示工程权威指南",
+      "type": "book",
+      "authors": ["James Phoenix", "Mike Taylor"],
+      "domain": "计算机",
+      "topics": ["提示工程", "生成式AI", "自动化", "工作流"],
+      "level": "入门到进阶",
+      "project_types": ["ai-app", "agent", "workflow-automation", "content-tool"],
+      "fit": "适合把 LLM 或扩散模型嵌入产品工作流，并提高输出可靠性。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B"
+    },
+    {
+      "title": "AI工程",
+      "type": "book",
+      "authors": ["Chip Huyen"],
+      "domain": "计算机",
+      "topics": ["AI工程", "评估", "AI系统", "模型产品化"],
+      "level": "进阶",
+      "project_types": ["ai-app", "mlops", "agent", "production-ai"],
+      "fit": "适合从原型走向生产的 AI 项目，重点关注评估、系统设计和可靠性。",
+      "official_url": "https://www.ituring.com.cn/search?q=AI%E5%B7%A5%E7%A8%8B"
+    },
+    {
+      "title": "图解机器学习",
+      "type": "book",
+      "authors": ["杉山将"],
+      "domain": "计算机",
+      "topics": ["机器学习", "图解", "数学直觉", "模型基础"],
+      "level": "入门",
+      "project_types": ["machine-learning", "data-tool", "ai-app"],
+      "fit": "适合需要快速建立机器学习概念框架的开发者。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%9B%BE%E8%A7%A3%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"
+    },
+    {
+      "title": "图解深度学习",
+      "type": "book",
+      "authors": ["山下隆义"],
+      "domain": "计算机",
+      "topics": ["深度学习", "神经网络", "图解", "AI基础"],
+      "level": "入门",
+      "project_types": ["machine-learning", "deep-learning", "ai-app"],
+      "fit": "适合深度学习入门和 AI 项目基础概念补齐。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%9B%BE%E8%A7%A3%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"
+    },
+    {
+      "title": "图解服务器端网络架构（第2版）",
+      "type": "book",
+      "authors": ["宫田宽士"],
+      "domain": "计算机",
+      "topics": ["后端", "网络架构", "服务器", "基础设施"],
+      "level": "入门到进阶",
+      "project_types": ["backend", "web-service", "infrastructure"],
+      "fit": "适合后端和服务端项目补齐网络与架构基础。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%9B%BE%E8%A7%A3%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84"
+    },
+    {
+      "title": "图解性能优化",
+      "type": "book",
+      "authors": ["小田圭二", "榑松谷仁"],
+      "domain": "计算机",
+      "topics": ["性能优化", "系统调优", "后端", "工程实践"],
+      "level": "进阶",
+      "project_types": ["backend", "performance", "infrastructure"],
+      "fit": "适合已有项目出现性能瓶颈时建立排查与优化框架。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%9B%BE%E8%A7%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"
+    },
+    {
+      "title": "图解密码技术（第3版）",
+      "type": "book",
+      "authors": ["结城浩"],
+      "domain": "计算机",
+      "topics": ["密码学", "安全", "加密", "认证"],
+      "level": "入门到进阶",
+      "project_types": ["security", "backend", "web-service"],
+      "fit": "适合涉及认证、加密、数据保护的项目补齐安全基础。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E5%9B%BE%E8%A7%A3%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF"
+    },
+    {
+      "title": "陶哲轩实分析（第4版）",
+      "type": "book",
+      "authors": ["陶哲轩"],
+      "domain": "数学",
+      "topics": ["实分析", "数学基础", "严谨证明"],
+      "level": "进阶",
+      "project_types": ["math-foundation", "machine-learning", "research-prototype"],
+      "fit": "适合需要提升数学严谨性、分析基础或研究能力的读者。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E9%99%B6%E5%93%B2%E8%BD%A9%E5%AE%9E%E5%88%86%E6%9E%90"
+    },
+    {
+      "title": "贝叶斯的博弈：数学、思维与人工智能",
+      "type": "book",
+      "authors": ["黄黎原"],
+      "domain": "科普",
+      "topics": ["贝叶斯", "人工智能", "概率", "思维方式"],
+      "level": "大众到进阶",
+      "project_types": ["ai-app", "data-tool", "math-foundation", "science-communication"],
+      "fit": "适合理解概率思维、AI 背后的数学思想和跨学科背景。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%9A%84%E5%8D%9A%E5%BC%88"
+    },
+    {
+      "title": "效率脑科学：卓有成效地完成每一项工作",
+      "type": "book",
+      "authors": ["David Rock"],
+      "domain": "科普",
+      "topics": ["效率", "脑科学", "认知", "工作方法"],
+      "level": "大众",
+      "project_types": ["personal-productivity", "learning-plan", "team-workflow"],
+      "fit": "适合把学习计划、项目节奏和个人效率结合起来的读者。",
+      "official_url": "https://www.ituring.com.cn/search?q=%E6%95%88%E7%8E%87%E8%84%91%E7%A7%91%E5%AD%A6"
+    }
+  ]
+}
