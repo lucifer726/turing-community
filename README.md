@@ -1,5 +1,10 @@
 # turing-community
 
+[![CI](https://github.com/lucifer726/turing-community/actions/workflows/ci.yml/badge.svg)](https://github.com/lucifer726/turing-community/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#安装)
+
 ![图灵社区技能包宣传图](assets/turing-community-promo.png)
 
 一个 [Claude](https://claude.com/claude-code) **Skill**：把开发者的真实代码项目和图灵社区（[ituring.com.cn](https://www.ituring.com.cn/)）的公开知识资产连接起来——诊断项目、定位知识缺口、按理由推荐图灵图书/公开资源，并为图灵运营把项目场景转成读者内容。
@@ -34,6 +39,13 @@ git clone https://github.com/lucifer726/turing-community.git .claude/skills/turi
 ```
 
 装好后 Claude 会自动按需触发，无需手动开启。
+
+### 本地验证
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/inspect_project.py .
+```
 
 ### 怎么用
 
